@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chia Tiền Ăn</title>
+    <style>
+       body {
+    background-color: pink;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    position: relative; /* Thêm thuộc tính này để có thể định vị tương đối cho hình ảnh */
+}
+
+img {
+    max-width: 40%;
+    height: auto;
+    margin-top: 150px; /* Giảm khoảng cách giữa chữ và hình ảnh */
+    position: absolute; /* Đặt vị trí tuyệt đối cho hình ảnh */
+    bottom: 100; /* Đặt hình ảnh dưới cùng của phần tử cha */
+    left: 50%; /* Đặt giữa theo chiều ngang */
+    transform: translateX(-50%); /* Dịch chuyển hình ảnh về giữa */
+}
+
+/* Thêm một ô container cho kết quả để định dạng hình ảnh */
+#result {
+    margin-top: 20px;
+    position: relative;
+}
+
+        
+        input, button {
+            margin: 10px;
+            padding: 5px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h1>App tính tiền ăn from Kim Tan with love </h1>
+
+    <img src="tratienbomay.png" alt="Girl in a jacket">
+
+    <label for="purpose">Mục đích ăn hôm nay:</label>
+    <input type="text" id="purpose" placeholder="Nhập mục đích ăn hôm nay ">
+
+    <label for="amount">Số tiền ăn:</label>
+    <input type="number" id="amount" placeholder="Nhập số tiền">
+
+    <label for="people">Số người tham gia:</label>
+    <input type="number" id="people" placeholder="Nhập số người">
+
+    <button onclick="calculate()">Tính Toán</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculate() {
+            var purpose = document.getElementById("purpose").value;
+            var amount = document.getElementById("amount").value;
+            var people = document.getElementById("people").value;
+
+            if (amount === "" || people === "") {
+                alert("Vui lòng nhập đầy đủ thông tin.");
+                return;
+            }
+
+            var perPerson = amount / people;
+           document.getElementById("result").innerHTML = "Mỗi người cần trả cho " + purpose + " " + perPerson.toFixed(2) + " đồng";
+           var image = document.createElement("img");
+           image.src = "tratienbomay.png"; 
+            resultDiv.appendChild(image);
+        }
+    </script>
+</body>
+</html>
